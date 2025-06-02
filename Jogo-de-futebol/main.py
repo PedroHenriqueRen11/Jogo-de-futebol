@@ -51,7 +51,7 @@ velocidade = 5
 
 # Bola
 bola = pygame.Rect(random.randint(0, 936), 0, 64, 64)
-bola_vel = 5
+bola_vel = 4
 
 # Objeto decorativo
 decorativo = gerar_objeto_decorativo()
