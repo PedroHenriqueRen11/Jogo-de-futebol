@@ -8,7 +8,6 @@
 
 *FutGol 2D* é um jogo em que o jogador controla um personagem que se movimenta apenas no eixo horizontal (X). O objetivo é acertar bolas que caem antes que elas atinjam o chão. Cada acerto rende 1 ponto. Se o jogador errar 3 bolas, o jogo termina.
 
-Possui elementos decorativos, um sol pulsante, efeitos de som, voz e reconhecimento por comando falado.
 
 ## 🧪 Mecânicas e Funcionalidades
 - Movimento do personagem no eixo X
