@@ -46,7 +46,7 @@ def reconhecer_comando():
             return ""
 
 # Jogador
-jogador = pygame.Rect(450, 600, 64, 64)
+jogador = pygame.Rect(450, 550, 98, 142)
 velocidade = 5
 
 # Bola
