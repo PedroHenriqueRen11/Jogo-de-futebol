@@ -18,9 +18,38 @@ preto = (0, 0, 0)
 branco = (255, 255, 255)
 amarelo = (255, 255, 0)
 
-# Sons
-pygame.mixer.init()
-chute_som = pygame.mixer.Sound("Recursos/sons/chute.wav")
+def capturar_nome_jogador():
+    caixa = pygame.Rect(300, 300, 400, 50)
+    fonte_input = pygame.font.Font(None, 40)
+    texto = ""
+    ativo = True
+
+    while ativo:
+        for evento in pygame.event.get():
+            if evento.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+            if evento.type == pygame.KEYDOWN:
+                if evento.key == pygame.K_RETURN and texto.strip() != "":
+                    return texto
+                elif evento.key == pygame.K_BACKSPACE:
+                    texto = texto[:-1]
+                elif len(texto) < 20:
+                    texto += evento.unicode
+
+        tela.fill((255, 255, 255))
+        instrucao = fonte_input.render("Digite seu nome e pressione ENTER:", True, (0, 0, 0))
+        tela.blit(instrucao, (200, 250))
+
+        pygame.draw.rect(tela, (0, 0, 0), caixa, 2)
+        txt_render = fonte_input.render(texto, True, (0, 0, 0))
+        tela.blit(txt_render, (caixa.x + 10, caixa.y + 10))
+
+        pygame.display.flip()
+        pygame.time.Clock().tick(30)
+
+
+
 
 # Imagens
 fundo = pygame.image.load("Recursos/imagens/fundo.png")
@@ -47,7 +76,7 @@ def reconhecer_comando():
 
 # Jogador
 jogador = pygame.Rect(450, 550, 98, 142)
-velocidade = 6
+velocidade = 8
 
 # Bola
 bola = pygame.Rect(random.randint(0, 936), 0, 64, 64)
@@ -84,7 +113,7 @@ def tela_inicial(nome):
                 if evento.key == pygame.K_RETURN:
                     return
 
-nome = input("Digite seu nome: ")
+nome = capturar_nome_jogador()
 tela_inicial(nome)
 
 while True:
@@ -113,7 +142,7 @@ while True:
     bola.y += bola_vel
     if jogador.colliderect(bola):
         pontos += 1
-        chute_som.play()
+        #chute_som.play()
         bola.x = random.randint(0, 936)
         bola.y = 0
     elif bola.y > altura:
