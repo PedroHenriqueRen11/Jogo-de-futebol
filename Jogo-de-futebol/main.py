@@ -6,13 +6,11 @@ import pyttsx3
 import speech_recognition as sr
 from Recursos.funcoes import gerar_objeto_decorativo
 
-# Inicializações
 pygame.init()
 largura, altura = 1000, 700
 tela = pygame.display.set_mode((largura, altura))
 pygame.display.set_caption("FutGol 2D")
 
-# Fontes e cores
 fonte = pygame.font.SysFont("Arial", 32)
 preto = (0, 0, 0)
 branco = (255, 255, 255)
@@ -49,19 +47,14 @@ def capturar_nome_jogador():
         pygame.time.Clock().tick(30)
 
 
-
-
-# Imagens
 fundo = pygame.image.load("Recursos/imagens/fundo.png")
 jogador_img = pygame.image.load("Recursos/imagens/jogador.png")
 bola_img = pygame.image.load("Recursos/imagens/bola.png")
 
-# TTS com pyttsx3
 voz = pyttsx3.init()
 voz.say("Bem-vindo ao FutGol!")
 voz.runAndWait()
 
-# Reconhecimento de voz
 reconhecedor = sr.Recognizer()
 
 def reconhecer_comando():
@@ -74,27 +67,21 @@ def reconhecer_comando():
         except:
             return ""
 
-# Jogador
 jogador = pygame.Rect(450, 550, 98, 142)
 velocidade = 11
 
-# Bola
 bola = pygame.Rect(random.randint(0, 936), 0, 64, 64)
 bola_vel = 12
 
-# Objeto decorativo
 decorativo = gerar_objeto_decorativo()
 
-# Sol
 raio = 30
 sol_crescendo = True
 
-# Pontuação e vidas
 pontos = 0
 vidas = 3
 pause = False
 
-# Tela de boas-vindas
 def tela_inicial(nome):
     while True:
         tela.fill(branco)
@@ -131,18 +118,15 @@ while True:
         pygame.display.flip()
         continue
 
-    # Movimento
     teclas = pygame.key.get_pressed()
     if teclas[pygame.K_LEFT] and jogador.x > 0:
         jogador.x -= velocidade
     if teclas[pygame.K_RIGHT] and jogador.x < largura - jogador.width:
         jogador.x += velocidade
 
-    # Atualizar bola
     bola.y += bola_vel
     if jogador.colliderect(bola):
         pontos += 1
-        #chute_som.play()
         bola.x = random.randint(0, 936)
         bola.y = 0
     elif bola.y > altura:
@@ -153,13 +137,11 @@ while True:
     if vidas <= 0:
         break
 
-    # Atualizar objeto decorativo
     decorativo["x"] += decorativo["vx"]
     decorativo["y"] += decorativo["vy"]
     if not (0 < decorativo["x"] < largura and 0 < decorativo["y"] < altura):
         decorativo = gerar_objeto_decorativo()
 
-    # Atualizar sol pulsante
     if sol_crescendo:
         raio += 0.2
         if raio >= 40:
@@ -169,7 +151,6 @@ while True:
         if raio <= 30:
             sol_crescendo = True
 
-    # Desenhar tudo
     tela.blit(fundo, (0, 0))
     tela.blit(jogador_img, jogador.topleft)
     tela.blit(bola_img, bola.topleft)
@@ -184,13 +165,11 @@ while True:
     pygame.display.flip()
     pygame.time.delay(30)
 
-# Fim de jogo e log
 data = datetime.datetime.now().strftime("%d/%m/%Y")
 hora = datetime.datetime.now().strftime("%H:%M:%S")
 with open("log.dat", "a") as f:
     f.write(f"{pontos} pontos | {data} | {hora}\n")
 
-# Tela de fim com últimos 5 registros
 with open("log.dat", "r") as f:
     logs = f.readlines()[-5:]
 
