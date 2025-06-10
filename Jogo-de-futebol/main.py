@@ -76,11 +76,11 @@ def reconhecer_comando():
 
 # Jogador
 jogador = pygame.Rect(450, 550, 98, 142)
-velocidade = 8
+velocidade = 11
 
 # Bola
 bola = pygame.Rect(random.randint(0, 936), 0, 64, 64)
-bola_vel = 8
+bola_vel = 12
 
 # Objeto decorativo
 decorativo = gerar_objeto_decorativo()
