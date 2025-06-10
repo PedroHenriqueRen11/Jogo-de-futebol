@@ -5,8 +5,8 @@
 - *RA*: [1138042]
  
 ## 🤝 Testador do Jogo
-- *Nome*: [Nome do colega]
-- *RA*: [RA do colega]
+- *Nome*: [Gustavo Marcante Vazzoelr]
+- *RA*: [1138009]
 
 ## 📝 Descrição do Jogo
 
