@@ -3,6 +3,10 @@
 ## 👤 Desenvolvedor
 - *Nome*: [Pedro Henrique Renosto]
 - *RA*: [1138042]
+ 
+## 🤝 Testador do Jogo
+- *Nome*: [Nome do colega]
+- *RA*: [RA do colega]
 
 ## 📝 Descrição do Jogo
 
