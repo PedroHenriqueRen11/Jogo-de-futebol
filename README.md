@@ -5,8 +5,11 @@
 - *RA*: [1138042]
  
 ## 🤝 Testador do Jogo
-- *Nome*: [Gustavo Marcante Vazzoelr]
+- *Nome*: [Gustavo Marcante Vazzoler]
 - *RA*: [1138009]
+
+- *Nome*: [Guilherme Vassoller Daros (não achei mais ninguem)]
+- *RA*: [1138143]
 
 ## 📝 Descrição do Jogo
 
